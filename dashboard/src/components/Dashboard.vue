@@ -1,0 +1,3 @@
+<template>
+    MF - Dashboard
+</template>
