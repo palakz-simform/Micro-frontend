@@ -10,7 +10,8 @@ export default defineConfig({
       name: 'cart',
       filename: 'cart.js',
       exposes: {
-        './Cart': './src/App.vue',
+        './Cart': './src/components/Cart.vue',
+        './OrderSummary': './src/components/OrderSummary.vue',
         './CartStore': './src/stores/cart.js',
         './CartIcon': './src/components/CartIcon.vue'
       },
@@ -21,7 +22,7 @@ export default defineConfig({
     port: 3002,
   },
   build: {
-    target: 'esnext', // Or a target higher than 'es2020'
+    target: 'esnext',
   },
   resolve: {
     alias: {

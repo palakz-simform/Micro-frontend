@@ -2,7 +2,7 @@
   <div class="mt-4 p-4 w-[40%]">
     <div class="relative">
       <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
-      <div class="p-8">
+      <div class="px-8">
         <div class="flex justify-between text-md">
           <p>Total MRP:</p>
           <p>Rs. {{ total }}</p>
@@ -19,7 +19,9 @@
           <p>Shipping Fee:</p>
           <p>Rs. 50</p>
         </div>
-        <div class="flex justify-between text-lg font-bold border-t-2 border-blue-400 my-2 py-2">
+        <div
+          class="flex justify-between text-lg font-bold border-t-2 border-blue-400 my-2 py-2"
+        >
           <p>Total Amount:</p>
           <p>Rs. {{ total + 20 + 50 }}</p>
         </div>

@@ -1,22 +1,18 @@
 import { defineStore } from 'pinia';
-export const useCartStore = defineStore('cart',{
-    state: () => ({
-        items: [],
-      }),
-      actions: {
-        addToCart(pizza) {
-            const existingItem = this.items.find((item) => item.id === pizza.id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                this.items.push(pizza);
-            }
-        },
-        removeFromCart(id){
-            this.items = this.items.filter(item => item.id!== id)
-        },
-        updateCart(products){
-            this.items = products;
+import { ref } from 'vue';
+export const useCartStore = defineStore('cart',() =>{
+    const items = ref([])
+    const addToCart = (pizza)  => {
+        const existingItem = items.value.find((item) => item.id === pizza.id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            items.value.push(pizza);
         }
     }
+    const removeFromCart = (id) => {
+        items.value = items.value.filter(item => item.id!== id)
+    }
+
+    return {items, addToCart, removeFromCart}
 });
