@@ -1,10 +1,8 @@
 <template>
-  <Cart />
-  <Dashboard />
-  <User />
+<Header />
+ <RouterView v-slot="{ Component }"></RouterView>
 </template>
 <script setup>
-import Cart from './components/Cart.vue'
-import Dashboard from './components/Dashboard.vue'
-import User from './components/Dashboard.vue'
+import { RouterView } from "vue-router";
+import Header from './components/Header.vue'
 </script>

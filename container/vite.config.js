@@ -12,7 +12,7 @@ export default defineConfig({
         cart: 'http://localhost:3002/dist/assets/cart.js',
         user: 'http://localhost:3003/dist/assets/user.js',
       },
-      shared: ['vue'],
+      shared: ['vue', 'pinia']
     }),
   ],
   server: {

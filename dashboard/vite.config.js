@@ -11,7 +11,10 @@ export default defineConfig({
       exposes: {
         './Dashboard': './src/App.vue',
       },
-      shared: ['vue'],
+      remotes: {
+        cart: 'http://localhost:3002/dist/assets/cart.js',
+      },
+      shared: ['vue', 'pinia'],
     }),
   ],
   server: {
@@ -19,5 +22,6 @@ export default defineConfig({
   },
   build: {
     target: "ES2022"
-  }
+  },
+
 });

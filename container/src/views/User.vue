@@ -1,9 +1,9 @@
 <template>
-    <RemoteCart />
+    <RemoteUser />
 </template>
 <script setup>
   import { defineAsyncComponent } from 'vue';
-  const RemoteCart = defineAsyncComponent(() =>
-    import('cart/Cart')
+  const RemoteUser = defineAsyncComponent(() =>
+    import('user/User')
   );
 </script>
