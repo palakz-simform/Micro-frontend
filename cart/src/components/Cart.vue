@@ -24,7 +24,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useCartStore } from "@/stores/cart";
 const cartStore = useCartStore();
@@ -32,9 +31,5 @@ const { items } = storeToRefs(cartStore);
 
 const removeFromCart = (pizza) => {
   cartStore.removeFromCart(pizza.id);
-  const myEvent = new CustomEvent("RemoveFromCart", {
-    detail: { pizza },
-  });
-  document.dispatchEvent(myEvent);
 };
 </script>

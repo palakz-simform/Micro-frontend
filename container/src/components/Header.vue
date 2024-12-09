@@ -19,14 +19,6 @@
 <script setup>
 import { ref } from "vue";
 import CartIcon from "cart/CartIcon";
-const pizzaInCart = ref(0);
-
-document.addEventListener("AddToCart", (event) => {
-  pizzaInCart.value++;
-});
-document.addEventListener("RemoveFromCart", (event) => {
-  pizzaInCart.value--;
-});
 </script>
 
 <style scoped>

@@ -1,0 +1,21 @@
+{
+  "name": "2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "cart",
+    "container",
+    "dashboard",
+    "user"
+  ],
+  "scripts": {
+    "dev:cart": "npm --prefix cart run dev",
+    "dev:dashboard": "npm --prefix dashboard run dev",
+    "dev:user": "npm --prefix user run dev",
+    "dev:container": "npm --prefix container run dev",
+    "dev:all": "npm run dev:cart & npm run dev:container & npm run dev:dashboard & npm run dev:user"
+  },
+  "author": "",
+  "license": "ISC"
+}
