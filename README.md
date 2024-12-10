@@ -25,7 +25,11 @@ This project consists of four microfrontends: `dashboard`, `cart`, `user`, and `
    ```bash
    npm install
    ```
-**2. Run All Modules Together:**
+**3. Build All Modules Together:**
+   ```bash
+   npm run build:all
+   ```
+**4. Run All Modules Together:**
 
 To start the development servers for all microfrontends (container, dashboard, cart, user) simultaneously, use the following command:
    ```bash
@@ -33,9 +37,9 @@ To start the development servers for all microfrontends (container, dashboard, c
    ```
 This will run the applications on the following ports:
 
-- **Container**: `http://localhost:3000`  
-- **Dashboard**: `http://localhost:3001`  
-- **Cart**: `http://localhost:3002`  
+- **Container**: `http://localhost:3000`
+- **Dashboard**: `http://localhost:3001`
+- **Cart**: `http://localhost:3002`
 - **User**: `http://localhost:3003`
 
 
