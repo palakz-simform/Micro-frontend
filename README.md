@@ -1,4 +1,4 @@
-# Vue Microfrontend Application
+# Vue Microfrontend Application with Vite
 
 This project consists of four microfrontends: `dashboard`, `cart`, `user`, and `container`. Each microfrontend is a separate application that can be developed and run independently or together.
 
