@@ -1,4 +1,4 @@
-# Vue Microfrontend Application with Vite 6
+# Vue Microfrontend Application
 
 This project consists of four microfrontends: `dashboard`, `cart`, `user`, and `container`. Each microfrontend is a separate application that can be developed and run independently or together.
 
@@ -10,9 +10,7 @@ This project consists of four microfrontends: `dashboard`, `cart`, `user`, and `
 - `cart`: Microfrontend for the shopping cart functionality.
 - `user`: Microfrontend for user-related functionality.
 - `container`: Shell application that integrates all microfrontends.
-- `node_modules`: Dependencies for the main project.
-- `package.json`: Main package configuration.
-- `README.md`: This documentation file.
+
 
 ---
 
@@ -35,8 +33,18 @@ To start the development servers for all microfrontends (container, dashboard, c
    ```
 This will run the applications on the following ports:
 
-- **Container**: `http://localhost:3000`
-- **Dashboard**: `http://localhost:3001`
-- **Cart**: `http://localhost:3002`
+- **Container**: `http://localhost:3000`  
+- **Dashboard**: `http://localhost:3001`  
+- **Cart**: `http://localhost:3002`  
 - **User**: `http://localhost:3003`
 
+
+## Technologies Used
+
+- **Vue.js (Composition API) + Vite 6**: Vue.js for frontend development with Composition API, and Vite 6 as the build tool and development server.
+
+- **Module Federation**: Implemented using `@originjs/vite-plugin-federation` for microfrontend integration.
+- **Pinia**: Used for state management in the microfrontends.
+
+## Author
+- Palak Zalavadia (palak.z@simformsolutions.com)
