@@ -7,27 +7,30 @@
           <p>Total MRP:</p>
           <p>Rs. {{ total }}</p>
         </div>
-        <div class="flex justify-between text-md">
-          <p>Discount on MRP:</p>
-          <p>- Rs. 100</p>
-        </div>
-        <div class="flex justify-between text-md">
-          <p>Platform Fee:</p>
-          <p>Rs. 20</p>
-        </div>
-        <div class="flex justify-between text-md">
-          <p>Shipping Fee:</p>
-          <p>Rs. 50</p>
+        <div v-if="items.length">
+          <div class="flex justify-between text-md">
+            <p>Discount on MRP:</p>
+            <p>- Rs. 100</p>
+          </div>
+          <div class="flex justify-between text-md">
+            <p>Platform Fee:</p>
+            <p>Rs. 20</p>
+          </div>
+          <div class="flex justify-between text-md">
+            <p>Shipping Fee:</p>
+            <p>Rs. 50</p>
+          </div>
         </div>
         <div
           class="flex justify-between text-lg font-bold border-t-2 border-blue-400 my-2 py-2"
         >
           <p>Total Amount:</p>
-          <p>Rs. {{ total + 20 + 50 }}</p>
+          <p>Rs. {{ items.length > 0 ? total + 20 + 50 : 0 }}</p>
         </div>
       </div>
       <button
         class="absolute right-5 mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        v-if="items.length"
       >
         Place order
       </button>

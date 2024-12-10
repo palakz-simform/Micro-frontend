@@ -12,4 +12,10 @@ import { useCartStore } from "@/stores/cart";
 import { storeToRefs } from "pinia";
 const cartStore = useCartStore();
 const { items } = storeToRefs(cartStore);
+window.addEventListener("addToCart", (event) => {
+  cartStore.addToCart(event.detail);
+});
+window.addEventListener("removeFromCart", (event) => {
+  cartStore.removeFromCart(event.detail);
+});
 </script>

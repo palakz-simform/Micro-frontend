@@ -56,10 +56,8 @@
 
 <script setup>
 import { ref } from "vue";
-import { useCartStore } from "cart/CartStore";
-const cartStore = useCartStore();
-import { storeToRefs } from "pinia";
-const { items } = storeToRefs(cartStore);
+const cart = ref([]);
+
 const pizzaList = ref([
   {
     id: 1,
@@ -112,7 +110,7 @@ const pizzaList = ref([
   {
     id: 7,
     name: "Mushroom Truffle",
-    price: 150.99,
+    price: 150.0,
     ingredients: [
       "Truffle oil",
       "Mozzarella",
@@ -135,14 +133,23 @@ const pizzaList = ref([
 ]);
 
 const addToCart = (pizza) => {
-  cartStore.addToCart({
-    ...pizza,
-    quantity: 1,
+  const existingItem = cart.value.find((item) => item.id === pizza.id);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.value.push({ ...pizza, quantity: 1 });
+  }
+  const event = new CustomEvent("addToCart", {
+    detail: {
+      ...pizza,
+      quantity: 1,
+    },
   });
+  window.dispatchEvent(event);
 };
 
 const decreaseQuantity = (pizza) => {
-  const existingItem = items.value.find((item) => item.id === pizza.id);
+  const existingItem = cart.value.find((item) => item.id === pizza.id);
   if (existingItem && existingItem.quantity > 1) {
     existingItem.quantity--;
   } else {
@@ -151,15 +158,19 @@ const decreaseQuantity = (pizza) => {
 };
 
 const removeFromCart = (pizza) => {
-  cartStore.removeFromCart(pizza.id);
+  cart.value = cart.value.filter((item) => item.id !== pizza.id);
+  const event = new CustomEvent("removeFromCart", {
+    detail: pizza.id,
+  });
+  window.dispatchEvent(event);
 };
 
 const isInCart = (pizza) => {
-  return items.value.some((item) => item.id === pizza.id);
+  return cart.value.some((item) => item.id === pizza.id);
 };
 
 const getQuantity = (pizza) => {
-  const item = items.value.find((item) => item.id === pizza.id);
+  const item = cart.value.find((item) => item.id === pizza.id);
   return item ? item.quantity : 0;
 };
 </script>

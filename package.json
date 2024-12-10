@@ -14,7 +14,7 @@
     "dev:dashboard": "npm --prefix dashboard run dev",
     "dev:user": "npm --prefix user run dev",
     "dev:container": "npm --prefix container run dev",
-    "dev:all": "npm run dev:cart & npm run dev:container & npm run dev:dashboard & npm run dev:user"
+    "dev:all": "npm run dev:dashboard & npm run dev:cart & npm run dev:user & npm run dev:container"
   },
   "author": "",
   "license": "ISC"

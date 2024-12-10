@@ -1,6 +1,12 @@
 <template>
   <div class="border-r-2 border-blue-400 p-4">
-    <div class="flex flex-col gap-4 max-h-[90%] overflow-auto">
+    <div
+      v-if="items.length === 0"
+      class="flex items-center justify-center bg-blue-100 h-[100vh]"
+    >
+      <p class="text-4xl text-blue-700">Cart Is Empty</p>
+    </div>
+    <div v-else class="flex flex-col gap-4 max-h-[90%] overflow-auto">
       <div
         class="p-4 bg-white mx-2 rounded-lg shadow-md flex flex-col gap-2"
         v-for="pizza in items"
