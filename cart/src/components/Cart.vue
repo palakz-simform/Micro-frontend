@@ -37,5 +37,9 @@ const { items } = storeToRefs(cartStore);
 
 const removeFromCart = (pizza) => {
   cartStore.removeFromCart(pizza.id);
+  const event = new CustomEvent("removeFromCart", {
+    detail: pizza.id,
+  });
+  window.dispatchEvent(event);
 };
 </script>

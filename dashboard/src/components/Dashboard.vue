@@ -173,4 +173,7 @@ const getQuantity = (pizza) => {
   const item = cart.value.find((item) => item.id === pizza.id);
   return item ? item.quantity : 0;
 };
+window.addEventListener("removeFromCart", (event) => {
+  cart.value = cart.value.filter((item) => item.id !== event.detail);
+});
 </script>
