@@ -55,7 +55,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onBeforeUnmount } from "vue";
+import PubSub from "pubsub-js";
 const cart = ref([]);
 
 const pizzaList = ref([
@@ -139,13 +140,7 @@ const addToCart = (pizza) => {
   } else {
     cart.value.push({ ...pizza, quantity: 1 });
   }
-  const event = new CustomEvent("addToCart", {
-    detail: {
-      ...pizza,
-      quantity: 1,
-    },
-  });
-  window.dispatchEvent(event);
+  PubSub.publish("addToCart", pizza);
 };
 
 const decreaseQuantity = (pizza) => {
@@ -159,10 +154,7 @@ const decreaseQuantity = (pizza) => {
 
 const removeFromCart = (pizza) => {
   cart.value = cart.value.filter((item) => item.id !== pizza.id);
-  const event = new CustomEvent("removeFromCart", {
-    detail: pizza.id,
-  });
-  window.dispatchEvent(event);
+  PubSub.publish("removeFromCart", pizza.id);
 };
 
 const isInCart = (pizza) => {
@@ -173,7 +165,15 @@ const getQuantity = (pizza) => {
   const item = cart.value.find((item) => item.id === pizza.id);
   return item ? item.quantity : 0;
 };
-window.addEventListener("removeFromCart", (event) => {
-  cart.value = cart.value.filter((item) => item.id !== event.detail);
+
+const removeFromCartSubscription = PubSub.subscribe(
+  "removeFromCart",
+  (_, data) => {
+    cart.value = cart.value.filter((item) => item.id !== data);
+  }
+);
+
+onBeforeUnmount(() => {
+  PubSub.unsubscribe(removeFromCartSubscription);
 });
 </script>

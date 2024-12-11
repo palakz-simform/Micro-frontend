@@ -30,6 +30,7 @@
 </template>
 
 <script setup>
+import PubSub from "pubsub-js";
 import { storeToRefs } from "pinia";
 import { useCartStore } from "@/stores/cart";
 const cartStore = useCartStore();
@@ -37,9 +38,6 @@ const { items } = storeToRefs(cartStore);
 
 const removeFromCart = (pizza) => {
   cartStore.removeFromCart(pizza.id);
-  const event = new CustomEvent("removeFromCart", {
-    detail: pizza.id,
-  });
-  window.dispatchEvent(event);
+  PubSub.publish("removeFromCart", pizza.id);
 };
 </script>

@@ -8,14 +8,25 @@
   </button>
 </template>
 <script setup>
-import { useCartStore } from "@/stores/cart";
+import { onBeforeUnmount } from "vue";
 import { storeToRefs } from "pinia";
+import PubSub from "pubsub-js";
+import { useCartStore } from "@/stores/cart";
 const cartStore = useCartStore();
 const { items } = storeToRefs(cartStore);
-window.addEventListener("addToCart", (event) => {
-  cartStore.addToCart(event.detail);
+const addToCartSubscription = PubSub.subscribe("addToCart", (_, data) => {
+  cartStore.addToCart(data);
 });
-window.addEventListener("removeFromCart", (event) => {
-  cartStore.removeFromCart(event.detail);
+
+const removeFromCartSubscription = PubSub.subscribe(
+  "removeFromCart",
+  (_, data) => {
+    cartStore.removeFromCart(data);
+  }
+);
+
+onBeforeUnmount(() => {
+  PubSub.unsubscribe(addToCartSubscription);
+  PubSub.unsubscribe(removeFromCartSubscription);
 });
 </script>
