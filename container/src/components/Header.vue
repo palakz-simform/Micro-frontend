@@ -12,6 +12,11 @@
       <router-link :to="{ name: 'Cart' }">
         <CartIcon />
       </router-link>
+      <router-link :to="{ name: 'Home' }">
+        <button class="text-white">
+          <i class="fas fa-home"></i>
+        </button>
+      </router-link>
     </div>
   </header>
 </template>

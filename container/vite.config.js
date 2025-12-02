@@ -11,6 +11,7 @@ export default defineConfig({
         dashboard: "http://localhost:3001/dist/assets/dashboard.js",
         cart: "http://localhost:3002/dist/assets/cart.js",
         user: "http://localhost:3003/dist/assets/user.js",
+        home: "http://localhost:3004/dist/assets/remoteEntry.js",
       },
       shared: ["vue", "pinia"],
     }),
