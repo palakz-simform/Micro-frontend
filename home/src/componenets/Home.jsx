@@ -16,10 +16,10 @@ const Home = () => {
                 Experience the best pizza in town!
               </p>
               <div className="flex gap-4">
-                <button onClick={() => window.location.href = '/'} className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition duration-300 shadow-lg">
+                <button onClick={() => { window.vueRouter.push?.('/'); }} className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition duration-300 shadow-lg">
                   Order Now
                 </button>
-                <button onClick={() => window.location.href = '/'} className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition duration-300">
+                <button onClick={() => { window.vueRouter.push?.('/'); }} className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition duration-300">
                   View Menu
                 </button>
               </div>
@@ -65,81 +65,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Popular Pizzas Section */}
-      <section className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-            Our Popular Pizzas
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Pizza Card 1 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
-                <span className="text-8xl">🍕</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-800">Margherita</h3>
-                <p className="text-gray-600 mb-4">
-                  Classic tomato sauce, fresh mozzarella, and basil
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-blue-600">Rs. 120</span>
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Pizza Card 2 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                <span className="text-8xl">🍕</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-800">Pepperoni</h3>
-                <p className="text-gray-600 mb-4">
-                  Loaded with pepperoni and extra cheese
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-blue-600">Rs. 140</span>
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Pizza Card 3 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-                <span className="text-8xl">🍕</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-800">Veggie Supreme</h3>
-                <p className="text-gray-600 mb-4">
-                  Fresh vegetables with herbs and spices
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-blue-600">Rs. 130</span>
-                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
             What Our Customers Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-blue-50 p-6 rounded-lg shadow">
+            <div className="bg-gray-50 p-6 rounded-lg shadow">
               <div className="flex items-center mb-4">
                 <div className="text-4xl mr-3">👨</div>
                 <div>
@@ -151,7 +84,7 @@ const Home = () => {
                 "Best pizza I've ever had! The crust is perfect and the toppings are always fresh."
               </p>
             </div>
-            <div className="bg-blue-50 p-6 rounded-lg shadow">
+            <div className="bg-gray-50 p-6 rounded-lg shadow">
               <div className="flex items-center mb-4">
                 <div className="text-4xl mr-3">👩</div>
                 <div>
@@ -163,7 +96,7 @@ const Home = () => {
                 "Fast delivery and amazing taste! Their pepperoni pizza is my favorite."
               </p>
             </div>
-            <div className="bg-blue-50 p-6 rounded-lg shadow">
+            <div className="bg-gray-50 p-6 rounded-lg shadow">
               <div className="flex items-center mb-4">
                 <div className="text-4xl mr-3">👨</div>
                 <div>
@@ -188,7 +121,7 @@ const Home = () => {
           <p className="text-xl mb-8 text-blue-100">
             Get 20% off on your first order. Use code: PIZZA20
           </p>
-          <button onClick={() => window.location.href = '/'} className="bg-white text-blue-600 px-10 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition duration-300 shadow-lg">
+          <button onClick={() => {window.vueRouter.push('/'); }} className="bg-white text-blue-600 px-10 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition duration-300 shadow-lg">
             Order Now & Save
           </button>
         </div>

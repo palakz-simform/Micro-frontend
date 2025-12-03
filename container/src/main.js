@@ -7,4 +7,7 @@ const pinia = createPinia()
 const app = createApp(App)
 app.use(router)
 app.use(pinia)
+
+// Make router globally available for microfrontends
+window.vueRouter = router;
 app.mount('#app')
